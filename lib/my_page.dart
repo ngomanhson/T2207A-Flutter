@@ -1,27 +1,51 @@
-
 import 'package:flutter/material.dart';
+import 'package:mb_app/screens/home/home_screen.dart';
+import 'package:mb_app/screens/profile/profile_screen.dart';
+import 'package:mb_app/screens/search/search_screen.dart';
 
-class MyPage extends StatelessWidget {
-  const MyPage({super.key});
+class MyPage extends StatefulWidget {
+  const MyPage({Key? key}) : super(key: key);
+
+  @override
+  _MyPageState createState() => _MyPageState();
+
+}
+
+class _MyPageState extends State<MyPage> {
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const SearchScreen(),
+    const ProfileScreen(),
+  ];
+
+  int _selectedIndex = 0;
+
+  _changeTab(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: const Text("T2207A App Example"),
+        title: const Text("T2207A Demo App",
+            style: TextStyle(color: Colors.white)
+        ),
+        backgroundColor: Colors.deepPurple,
       ),
 
-      body:
-      // const Text(
-      //   "Hello World!",
-      //   style: TextStyle(color: Colors.pinkAccent),
-      // ),
-      Image.network('https://images.unsplash.com/photo-1682687220777-2c60708d6889?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+      body: _screens[_selectedIndex],
 
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.deepPurple,
+        unselectedItemColor: Colors.black45,
+        onTap: (index) => _changeTab(index),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_max_outlined), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search_off_outlined), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.search_outlined), label: "Search"),
           BottomNavigationBarItem(icon: Icon(Icons.person_2_outlined), label: "Profile"),
         ],
       ),
