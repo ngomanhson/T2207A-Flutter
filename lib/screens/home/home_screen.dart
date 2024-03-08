@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mb_app/screens/home/ui/home_carousel.dart';
+import 'package:mb_app/screens/home/ui/home_category.dart';
+import 'package:mb_app/screens/home/ui/popular.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,8 +11,8 @@ class HomeScreen extends StatelessWidget {
     return const Column(
       children: [
         HomeCarousel(),
-        Text("Second section"),
-        Text("Second section"),
+        HomeCategory(),
+        Popular(),
       ],
     );
   }
