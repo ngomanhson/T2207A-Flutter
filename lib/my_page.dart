@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mb_app/screens/cart/cart_screen.dart';
 import 'package:mb_app/screens/home/home_screen.dart';
 import 'package:mb_app/screens/profile/profile_screen.dart';
 import 'package:mb_app/screens/search/search_screen.dart';
@@ -15,6 +16,7 @@ class _MyPageState extends State<MyPage> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const SearchScreen(),
+    const CartScreen(),
     const ProfileScreen(),
   ];
 
@@ -46,6 +48,7 @@ class _MyPageState extends State<MyPage> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search_outlined), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
           BottomNavigationBarItem(icon: Icon(Icons.person_2_outlined), label: "Profile"),
         ],
       ),

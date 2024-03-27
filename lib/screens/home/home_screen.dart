@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     return const Column(
       children: [
         HomeCarousel(),
-        HomeCategory(),
+        // HomeCategory(),
         Popular(),
       ],
     );

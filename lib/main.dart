@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:mb_app/bloc/cart_bloc.dart';
 import 'package:mb_app/my_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+        create: (_) => CartBloc(),
+      child: const MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
